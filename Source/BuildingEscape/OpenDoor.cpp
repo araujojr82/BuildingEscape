@@ -19,10 +19,12 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	AActor* Owner = GetOwner();
+	AActor* Owner = GetOwner();	
+	FRotator NewRotation = FRotator( 0.0f, -60.0f, 0.0f );
+	Owner->SetActorRotation( NewRotation );
+
 	FString ObjectName = Owner->GetName();
 	FString ObjectRotation = Owner->GetTransform().GetRotation().ToString();
-	//FString ObjectPos = GetOwner()->GetTransform().GetLocation().ToString();
 	UE_LOG( LogTemp, Warning, TEXT( "%s rotation is %s" ), *ObjectName, *ObjectRotation );
 }
 
