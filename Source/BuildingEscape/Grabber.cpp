@@ -71,10 +71,11 @@ void UGrabber::Grab()
 	if( ActorHit != nullptr )
 	{
 		// TODO attach physics handle
-		PhysicsHandle->GrabComponentAtLocation(
+		PhysicsHandle->GrabComponentAtLocationWithRotation(
 			ComponentToGrab,
 			NAME_None,
-			ComponentToGrab->GetOwner()->GetActorLocation()
+			ComponentToGrab->GetOwner()->GetActorLocation(),
+			ComponentToGrab->GetOwner()->GetActorRotation()
 		);
 	}
 }
